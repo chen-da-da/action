@@ -6,4 +6,4 @@ jobs:
     steps:
     - name: test1
       run: |
-        ls
+        sudo ls
