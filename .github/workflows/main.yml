@@ -20,11 +20,11 @@ jobs:
         cd lede
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        make menuconfig
+        make defconfig
     - name: 下载 dl 库，编译固件 
       run: |
         make download -j8
-        make V=s -j1
+        make V=s -j$(nproc)
     - name: 编译完成
       run: |
         cd lede/bin/targets
