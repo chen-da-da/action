@@ -28,6 +28,7 @@ jobs:
     - name: 配置内核
       run: |
         cd linux-5.14.1
+        cp -v /boot/config-$(uname -r) .config
         make defconfig
     - name: 编译
       run: |
