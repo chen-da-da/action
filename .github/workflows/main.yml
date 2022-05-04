@@ -38,4 +38,4 @@ jobs:
       if: true
       with:
        name: lede
-       path: lede/*
+       path: lede.zip
