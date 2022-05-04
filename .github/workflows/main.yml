@@ -29,5 +29,5 @@ jobs:
     - name: 编译完成
       run: |
         cd lede/bin/targets
-        ls -lh
+        ll
         echo "***done***"
