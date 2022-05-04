@@ -27,22 +27,28 @@ jobs:
       id: biuld1
       run: |
         cd lede
-        #make download -j8
-        #make -j$(nproc) ||  make -j1 V=s
+        make download -j8
+        make -j$(nproc) ||  make -j1 V=s
         echo "::set-output name=status::success"
-    - name: 打包文件
+#     - name: 打包文件
+#       run: |
+#         zip -n 9 -vr lede.zip lede
+#         pwd
+#         ls -lh
+#         #echo "FIRMWARE=$PWD/lede.zip" >> $GITHUB_ENV
+#         echo "FIRMWARE=$PWD/lede.zip"
+    - name: 整理文件
       run: |
-        zip -n 9 -vr lede.zip lede
-        pwd
-        ls -lh
-        #echo "FIRMWARE=$PWD/lede.zip" >> $GITHUB_ENV
-        echo "FIRMWARE=$PWD/lede.zip"
+        cd lede/bin/targets/*/*
+        rm -rf packages
+        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        #echo "::set-output name=status::success"
     - name: 上传文件
       uses: actions/upload-artifact@main
       if: steps.biuld1.outputs.status == 'success' && !cancelled()
       with:
        name: lede
-       path: lede.zip
+       path: ${{ env.FIRMWARE }}
     - name: 上传WeTransfer
       id: wetransfer
       #if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
