@@ -35,8 +35,14 @@ jobs:
         zip -n 9 -vr lede.zip lede
     - name: 上传文件
       uses: actions/upload-artifact@main
-      if: steps.biuld2.outputs.status == 'success' && !cancelled()
+      if: steps.biuld1.outputs.status == 'success' && !cancelled()
       #if: true
       with:
        name: lede
        path: lede.zip
+    - name: 上传网盘
+      run: |
+       curl -fsSL git.io/file-transfer | sh
+       ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
+       echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
+       echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
