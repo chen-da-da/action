@@ -31,11 +31,12 @@ jobs:
         #make -j$(nproc) ||  make -j1 V=s
     - name: 打包文件
       run: |
-        tar -c lede.zip lede/*
+        cd lede
+        tar -c lede.zip *
     - name: 上传文件
       uses: actions/upload-artifact@main
       #if: steps.biuld1.outputs.status == 'success' && !cancelled()
       if: true
       with:
        name: lede
-       path: lede.zip
+       path: lede/lede.zip
