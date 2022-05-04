@@ -33,7 +33,6 @@ jobs:
     - name: 打包文件
       run: |
         zip -n 9 -vr lede.zip lede
-        cd lede
         echo "FIRMWARE=$PWD/lede.zip" >> $GITHUB_ENV
         #echo "FIRMWARE=$PWD/lede.zip"
     - name: 上传文件
