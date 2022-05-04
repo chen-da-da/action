@@ -34,7 +34,8 @@ jobs:
       run: |
         zip -n 9 -vr lede.zip lede
         cd lede
-        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        #echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        echo "FIRMWARE=$PWD"
     - name: 上传文件
       uses: actions/upload-artifact@main
       if: steps.biuld1.outputs.status == 'success' && !cancelled()
