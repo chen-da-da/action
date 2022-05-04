@@ -29,6 +29,7 @@ jobs:
         cd lede
         #make download -j8
         #make -j$(nproc) ||  make -j1 V=s
+        echo "::set-output name=status::success"
     - name: 打包文件
       run: |
         zip -n 9 -vr lede.zip lede
