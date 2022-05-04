@@ -23,14 +23,15 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         make defconfig
-    - name: 下载 dl 库，编译固件 
+    - name: 下载 dl 库，编译固件
+      id: biuld
       run: |
         cd lede
         make download -j8
         #make -j$(nproc) ||  make -j1 V=s
     - name: 编译完成
       uses: actions/upload-artifact@main
-      if: steps.下载 dl 库，编译固件.outputs.status == 'success' && !cancelled()
+      if: steps.biuld.outputs.status == 'success' && !cancelled()
       with:
         name: lede
         path: lede/
