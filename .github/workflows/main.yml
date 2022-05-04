@@ -23,7 +23,7 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         make defconfig
-    - name: biuld2
+    - name: 编译
       id: biuld1
       run: |
         cd lede
@@ -34,8 +34,8 @@ jobs:
       run: |
         zip -n 9 -vr lede.zip lede
         cd lede
-        #echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "FIRMWARE=$PWD/lede.zip"
+        echo "FIRMWARE=$PWD/lede.zip" >> $GITHUB_ENV
+        #echo "FIRMWARE=$PWD/lede.zip"
     - name: 上传文件
       uses: actions/upload-artifact@main
       if: steps.biuld1.outputs.status == 'success' && !cancelled()
