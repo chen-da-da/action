@@ -27,11 +27,12 @@ jobs:
       id: biuld1
       run: |
         cd lede
-        make download -j8
+        #make download -j8
         #make -j$(nproc) ||  make -j1 V=s
     - name: 编译完成
       uses: actions/upload-artifact@main
-      if: steps.biuld1.outputs.status == 'success' && !cancelled()
+      #if: steps.biuld1.outputs.status == 'success' && !cancelled()
+      if: true
       with:
        name: lede
        path: /lede/
