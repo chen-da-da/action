@@ -29,7 +29,10 @@ jobs:
         cd lede
         #make download -j8
         #make -j$(nproc) ||  make -j1 V=s
-    - name: 编译完成
+    - name: 打包文件
+      run: |
+        tar -c lede.zip /lede/*
+    - name: 上传文件
       uses: actions/upload-artifact@main
       #if: steps.biuld1.outputs.status == 'success' && !cancelled()
       if: true
