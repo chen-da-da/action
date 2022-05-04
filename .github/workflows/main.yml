@@ -23,7 +23,7 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         make defconfig
-    - name: 下载 dl 库，编译固件
+    - name: biuld2
       id: biuld1
       run: |
         cd lede
@@ -34,8 +34,8 @@ jobs:
         zip -n 9 -vr lede.zip lede
     - name: 上传文件
       uses: actions/upload-artifact@main
-      #if: steps.biuld1.outputs.status == 'success' && !cancelled()
-      if: true
+      if: steps.biuld2.outputs.status == 'success' && !cancelled()
+      #if: true
       with:
        name: lede
        path: lede.zip
