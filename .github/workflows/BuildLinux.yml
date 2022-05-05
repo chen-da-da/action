@@ -41,17 +41,17 @@ jobs:
         #make defconfig
     - name: 编译
       run: |
-        cd linux-5.14.1
+        cd $VERSION
         make -j$(nproc) ||  make -j1 V=s
 #     - name: make bzImage
 #       run: |
-#         cd linux-5.14.1
+#         cd $VERSION
 #         #make bzImage -j$(nproc)
 #         make modules -j$(nproc)
     - name: 编译结束
       run: |
         echo "*****done*****"
-        cd linux-5.14.1
+        cd $VERSION
         #sudo make modules_install
         #sudo make install
 
