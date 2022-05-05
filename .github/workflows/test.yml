@@ -32,4 +32,4 @@ jobs:
       - name: 查看文件
         run: |
           cd config
-          cat kernrl.config
+          cat kernel.config
