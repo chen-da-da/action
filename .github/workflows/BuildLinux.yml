@@ -49,6 +49,6 @@ jobs:
       run: |
         echo "*****done*****"
         cd linux-5.14.1
-        sudo make modules_install
-        sudo make install
+        #sudo make modules_install
+        #sudo make install
 
