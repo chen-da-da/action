@@ -29,3 +29,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           ls -lh
+      - name: 查看文件
+        run: |
+          cd config
+          cat kernrl.config
