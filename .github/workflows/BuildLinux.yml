@@ -6,6 +6,9 @@ name: BuildLinux
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  
+env:
+  VERSION: linux-5.15
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,11 +28,11 @@ jobs:
         sudo apt-get install -y git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
     - name: 下载源码
       run: |
-        wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.14.1.tar.xz
-        tar xvf linux-5.14.1.tar.xz
+        wget https://cdn.kernel.org/pub/linux/kernel/v5.x/$VERSION.tar.xz
+        tar xvf $VERSION.tar.xz
     - name: 配置内核
       run: |
-        cd linux-5.14.1
+        cd $VERSION
         #cp -v /boot/config-$(uname -r) .config
         cp -v ../config/kernel.config .config
         scripts/config --set-str SYSTEM_TRUSTED_KEYS ""
