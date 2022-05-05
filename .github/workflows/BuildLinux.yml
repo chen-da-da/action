@@ -37,7 +37,7 @@ jobs:
     - name: make bzImage
       run: |
         cd linux-5.14.1
-        make bzImage -j$(nproc)
+        #make bzImage -j$(nproc)
         make modules -j$(nproc)
     - name: 编译结束
       run: |
