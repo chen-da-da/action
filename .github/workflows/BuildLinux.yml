@@ -31,6 +31,7 @@ jobs:
         cp -v /boot/config-$(uname -r) .config
         scripts/config --set-str SYSTEM_TRUSTED_KEYS ""
         scripts/config --disable SYSTEM_REVOCATION_KEYS
+        scripts/config --disable CONFIG_DEBUG_INFO_BTF
         #make defconfig
     - name: 编译
       run: |
