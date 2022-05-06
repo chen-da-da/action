@@ -19,6 +19,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: 查看空间
+      if: (!cancelled())
+      run: df -hT
+    - name: 删除无用文件
+      run: |
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        df -hT
     - name: Checkout
       uses: actions/checkout@main
     - name: 下载依赖
