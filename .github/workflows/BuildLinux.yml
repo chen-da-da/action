@@ -54,4 +54,9 @@ jobs:
         cd $VERSION
         #sudo make modules_install
         #sudo make install
-
+    - name: 上传
+      uses: actions/upload-artifact@main
+      #if: steps.organize.outputs.status == 'success' && !cancelled()
+      with:
+        name: kernel
+        path: $VERSION/arch/X86/boot/
