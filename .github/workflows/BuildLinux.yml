@@ -56,7 +56,7 @@ jobs:
         #sudo make install
     - name: 打包
       run: |
-        zip -vr kernel.zip $VERSION
+        zip -9 -vr kernel.zip $VERSION
     - name: 上传
       uses: actions/upload-artifact@main
       #if: steps.organize.outputs.status == 'success' && !cancelled()
