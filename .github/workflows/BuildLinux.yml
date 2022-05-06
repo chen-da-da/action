@@ -54,9 +54,12 @@ jobs:
         cd $VERSION
         #sudo make modules_install
         #sudo make install
+    - name: 打包
+      run: |
+        zip -n 9 -vr kernel.zip $VERSION
     - name: 上传
       uses: actions/upload-artifact@main
       #if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: kernel
-        path: $VERSION/arch/X86/boot/
+        path: kernel.zip
