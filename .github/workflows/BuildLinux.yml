@@ -61,6 +61,9 @@ jobs:
         cd $VERSION
         #sudo make modules_install
         #sudo make install
+    - name: 查看空间
+      if: (!cancelled())
+      run: df -hT
     - name: 打包
       run: |
         zip -9 -vr kernel.zip $VERSION
