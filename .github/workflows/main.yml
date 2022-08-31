@@ -18,8 +18,7 @@ jobs:
         ./scripts/feeds clean
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        #make defconfig
-        make localyesconfig
+        make defconfig
     - name: 编译
       id: biuld1
       run: |
