@@ -17,6 +17,7 @@ jobs:
       run: |
         git clone -b 22.03 --single-branch https://github.com/Lienol/openwrt openwrt
         cd openwrt
+        cp -v ../feeds/lienol.feeds feeds.conf.default
         ./scripts/feeds clean
         ./scripts/feeds update -a
         ./scripts/feeds install -a
