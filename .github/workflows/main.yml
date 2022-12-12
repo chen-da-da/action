@@ -20,7 +20,7 @@ jobs:
         rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
     - name: 下载源代码，更新 feeds 并选择配置
       run: |
-        git clone -b 22.03 --single-branch https://github.com/Lienol/openwrt openwrt
+        git clone -b 21.02 --single-branch https://github.com/Lienol/openwrt openwrt
         cd openwrt
         cp -v ../feeds/lienol.feeds feeds.conf.default
         ./scripts/feeds clean
