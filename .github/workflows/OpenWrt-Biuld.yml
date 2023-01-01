@@ -1,7 +1,9 @@
 name: Build OpenWrt
+
 on:
   repository_dispatch:
   workflow_dispatch:
+  
 jobs:
   biuld:
     runs-on: ubuntu-latest
