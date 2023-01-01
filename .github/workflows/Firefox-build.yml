@@ -2,7 +2,7 @@ name: Build Firefox
 
 on:
   repository_dispatch:
-  #workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
