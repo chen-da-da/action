@@ -27,7 +27,7 @@ jobs:
       
     - name: 编译
       run: |
-        cd pal
+        cd pal/SdlpalEdit/
         ls
         make
         
