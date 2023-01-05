@@ -24,7 +24,16 @@ jobs:
     - name: 下载源码
       run: |
         git clone https://gitee.com/394999482/pal.git pal
-      
+        
+    - name: 下载安装SDL
+      run: |
+        wget https://github.com/libsdl-org/SDL/releases/download/release-2.26.2/SDL2-2.26.2.tar.gz
+        tar xvf SDL2-2.26.2.tar.gz
+        ls
+        cd SDL2-2.26.2
+        ./configure
+        make
+        sudo make install
     - name: 编译
       run: |
         cd pal/SdlpalEdit/
