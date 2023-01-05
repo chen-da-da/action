@@ -21,12 +21,12 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "Asia/Shanghai"
         
-      - name: 下载源码
+    - name: 下载源码
       run: |
-      git https://gitee.com/394999482/pal.git pal
+        git clone https://gitee.com/394999482/pal.git pal
       
-      -name: 编译
+    - name: 编译
       run: |
-      cd pal
-      make
+        cd pal
+        make
         
