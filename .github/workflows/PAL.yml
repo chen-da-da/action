@@ -28,6 +28,6 @@ jobs:
     - name: 编译
       run: |
         cd pal
-        
+        ls
         make
         
