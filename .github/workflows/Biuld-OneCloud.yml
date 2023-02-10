@@ -1,4 +1,4 @@
-name: Build OneThing
+name: Build OneCloud
 
 on:
   repository_dispatch:
@@ -24,14 +24,14 @@ jobs:
       run: |
         git clone https://github.com/coolsnowwolf/lede openwrt
         cd openwrt
-        cp -v ../feeds/onething.feeds feeds.conf.default
+        cp -v ../feeds/onecloud.feeds feeds.conf.default
         ./scripts/feeds clean
         ./scripts/feeds update -a
         ./scripts/feeds install -a
     - name: 更新配置选项
       run: |
        cd openwrt
-       cp -v ../config/onething.config .config
+       cp -v ../config/onecloud.config .config
        make defconfig
     - name: 编译
       id: biuld1
