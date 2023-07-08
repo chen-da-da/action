@@ -57,7 +57,7 @@ jobs:
     - name: 编译Linux镜像
       run: |
         cd $VERSION
-        sudo ./build.sh BOARD=orangepizero3 BRANCH=next BUILD_OPT=image RELEASE=bullseye BUILD_MINIMAL=no BUILD_DESKTOP=no KERNEL_CONFIGURE=yes
+        sudo ./build.sh BOARD=orangepizero3 BRANCH=next BUILD_OPT=image RELEASE=bullseye BUILD_MINIMAL=no BUILD_DESKTOP=yes KERNEL_CONFIGURE=yes
     - name: 查看空间
       if: (!cancelled())
       run: df -hT
