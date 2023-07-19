@@ -53,7 +53,7 @@ jobs:
     - name: 编译rootfs
       run: |
         cd $VERSION
-        sudo ./build.sh BOARD=orangepizero3 BRANCH=current BUILD_OPT=rootfs RELEASE=bullseye BUILD_MINIMAL=no BUILD_DESKTOP=yes KERNEL_CONFIGURE=yes
+        sudo ./build.sh BOARD=orangepizero3 BRANCH=next BUILD_OPT=rootfs RELEASE=jammy BUILD_MINIMAL=no BUILD_DESKTOP=yes KERNEL_CONFIGURE=yes
 
     - name: 编译Linux镜像
       run: |
