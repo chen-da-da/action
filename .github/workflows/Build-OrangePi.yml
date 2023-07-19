@@ -48,7 +48,7 @@ jobs:
     - name: 编译Linux内核
       run: |
         cd $VERSION
-        sudo ./build.sh BOARD=orangepizero3 BRANCH=next BUILD_OPT=kernel KERNEL_CONFIGURE=no
+        #sudo ./build.sh BOARD=orangepizero3 BRANCH=next BUILD_OPT=kernel KERNEL_CONFIGURE=no
         ls output/debs/linux-*
     - name: 编译rootfs
       run: |
